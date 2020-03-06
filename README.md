@@ -1,22 +1,24 @@
-# Using a Map instead of a switch statement
+# Replacing a switch statement by a JS Map
 
 ## Logic
+Core snippet:
 ```javascript
 const switchMap = new Map()
     .set(actions.ACTION_ONE, actionOne)
     .set(actions.ACTION_TWO, actionTwo)
     .set(actions.ACTION_THREE, actionThree);
 
-export default function reducer(key) {
-    const item = switchMap.get(key);
-    return item ? item() : " not found ";
+export default function reducer(action, state = null) {
+    return switchMap.has(action) ? switchMap.get(action)(action, state) : defaultAction();
 }
 ```
 ## Consume
+A client call. The second parameter represents per-use-case information. 
+This demo fakes  a Redux reducer.
 ```javascript
 import reducer from './reducer';
 
-const thing2 = reducer(actions.ACTION_TWO);
+reducer(actions.ACTION_THREE, '3');
 ```
 
 ## Install
@@ -24,6 +26,10 @@ const thing2 = reducer(actions.ACTION_TWO);
 
 ## Run
 `yarn start`
+
+## Screen
+
+![screen-shot](./doc/screenshot.png)
 
 -------------
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

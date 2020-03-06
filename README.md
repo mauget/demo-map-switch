@@ -14,6 +14,8 @@ export default function reducer(key) {
 ```
 ## Consume
 ```javascript
+import reducer from './reducer';
+
 const thing2 = reducer(actions.ACTION_TWO);
 ```
 

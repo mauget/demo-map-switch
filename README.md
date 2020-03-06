@@ -1,3 +1,29 @@
+# Using a Map instead of a switch statement
+
+## Logic
+```javascript
+const switchMap = new Map()
+    .set(actions.ACTION_ONE, actionOne)
+    .set(actions.ACTION_TWO, actionTwo)
+    .set(actions.ACTION_THREE, actionThree);
+
+export default function reducer(key) {
+    const item = switchMap.get(key);
+    return item ? item() : " not found ";
+}
+```
+## Consume
+```javascript
+const thing2 = reducer(actions.ACTION_TWO);
+```
+
+## Install
+`yarn install`
+
+## Run
+`yarn start`
+
+-------------
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

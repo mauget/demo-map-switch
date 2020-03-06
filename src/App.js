@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import reducer from './reducer';
+import * as actions from './constants';
+
+const thing3 = reducer(actions.ACTION_THREE);
+const thing1 = reducer(actions.ACTION_ONE);
+const thing2 = reducer(actions.ACTION_TWO);
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    return (
+        <div className="App">
+            <header className="App-header">
+                <p>{"Thing 1 has " + thing1}</p>
+                <p>{"Thing 2 has " + thing2}</p>
+                <p>{"Thing 3 has " + thing3}</p>
+            </header>
+        </div>
+    );
 }
 
 export default App;

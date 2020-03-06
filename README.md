@@ -28,7 +28,7 @@ reducer(actions.ACTION_THREE, '3');
 `yarn start`
 
 ## Screen
-
+A React view renders outputs from demo boilerplate reducer calls.
 ![screen-shot](./doc/screenshot.png)
 
 -------------
